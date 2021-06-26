@@ -46,6 +46,7 @@
     "extra": {
         "laravel": {
             "providers": [
+                "Inboxly\\Receiver\\FeedIoServiceProvider",
                 "Inboxly\\Receiver\\ReceiverServiceProvider"
             ]
         }
