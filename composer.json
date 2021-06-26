@@ -1,0 +1,53 @@
+{
+    "name": "inboxly/receiver",
+    "type": "library",
+    "description": "Inboxly Receiver.",
+    "keywords": ["inboxly", "receiver", "feed", "rss"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sento Sango",
+            "email": "sentosango@gmail.com",
+            "homepage": "https://github.com/sentosango",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+    "issues": "https://github.com/inboxly/receiver/issues",
+    "source": "https://github.com/inboxly/receiver"
+    },
+    "require": {
+        "php": "^8.0",
+        "debril/feed-io": "^5.0",
+        "embed/embed": "^4.3",
+        "illuminate/support": "^8.48",
+        "inboxly/text-processing": "^0.1"
+    },
+    "require-dev": {
+        "phpunit/php-code-coverage": "^9.2",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Inboxly\\Receiver\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Inboxly\\Receiver\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Inboxly\\Receiver\\ReceiverServiceProvider"
+            ]
+        }
+    }
+}
