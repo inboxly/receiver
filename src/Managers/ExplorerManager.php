@@ -12,12 +12,12 @@ final class ExplorerManager
     /**
      * @var \Inboxly\Receiver\Contracts\QueryExplorer[]
      */
-    private array $queryExplorers;
+    private array $queryExplorers = [];
 
     /**
      * @var \Inboxly\Receiver\Contracts\UrlExplorer[]
      */
-    private array $urlExplorers;
+    private array $urlExplorers = [];
 
     /**
      * Add an instance of explorer to the manager
@@ -44,7 +44,7 @@ final class ExplorerManager
      * @param string|null $explorerKey
      * @return array
      */
-    public function explore(string $query, ?string $explorerKey): array
+    public function explore(string $query, ?string $explorerKey = null): array
     {
         if ($this->isUrl($query)) {
             return $explorerKey ? $this->exploreByUrlAndKey($query, $explorerKey) : $this->exploreByUrl($query);
