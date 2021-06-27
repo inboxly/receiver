@@ -21,6 +21,7 @@ class RssFetcherTest extends TestCase
 {
     /**
      * @test
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      * @see \Inboxly\Receiver\Sources\Rss\RssFetcher::getKey()
      */
     public function is_return_key()
@@ -32,6 +33,7 @@ class RssFetcherTest extends TestCase
 
     /**
      * @test
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      * @see \Inboxly\Receiver\Sources\Rss\RssFetcher::getCorrectors()
      */
     public function is_return_correctors()
@@ -47,6 +49,7 @@ class RssFetcherTest extends TestCase
 
     /**
      * @test
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      * @see \Inboxly\Receiver\Sources\Rss\RssFetcher::getCorrectors()
      */
     public function is_return_parameters()
@@ -63,12 +66,13 @@ class RssFetcherTest extends TestCase
 
     /**
      * @test
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      * @see \Inboxly\Receiver\Sources\Rss\RssFetcher::getCorrectors()
      */
     public function is_can_fetch_feed()
     {
         // Setup
-        $fetcher = $this->makeRssFetcher();
+        $this->makeRssFetcher();
 
         // Asserts
         $this->markTestIncomplete('Todo: make mock of feedIo');
