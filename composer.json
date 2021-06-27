@@ -21,7 +21,8 @@
         "debril/feed-io": "^5.0",
         "embed/embed": "^4.3",
         "illuminate/support": "^8.48",
-        "inboxly/text-processing": "^0.1"
+        "inboxly/text-processing": "^0.1",
+        "laminas/laminas-diactoros": "^2.6"
     },
     "require-dev": {
         "phpunit/php-code-coverage": "^9.2",
