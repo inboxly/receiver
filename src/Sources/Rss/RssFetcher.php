@@ -22,13 +22,6 @@ final class RssFetcher implements Fetcher
     public const KEY = 'rss';
 
     /**
-     * RSS client instance
-     *
-     * @var \FeedIo\FeedIo
-     */
-    protected FeedIo $feedIo;
-
-    /**
      * Array of correctors for feeds and entries
      *
      * @var array
@@ -38,12 +31,13 @@ final class RssFetcher implements Fetcher
     /**
      * RssFetcher constructor.
      *
-     * @param \FeedIo\FeedIo $feedIo
+     * @param \FeedIo\FeedIo $feedIo RSS client instance
      * @param \Inboxly\Receiver\Sources\Rss\RssCorrector $rssCorrector
      */
-    public function __construct(FeedIo $feedIo, RssCorrector $rssCorrector)
-    {
-        $this->feedIo = $feedIo;
+    public function __construct(
+        private FeedIo $feedIo,
+        RssCorrector $rssCorrector
+    ){
         $this->correctors[] = $rssCorrector;
     }
 

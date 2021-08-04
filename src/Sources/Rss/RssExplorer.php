@@ -9,12 +9,14 @@ use Inboxly\Receiver\Contracts\UrlExplorer;
 
 final class RssExplorer implements UrlExplorer
 {
-    protected FeedIo $feedIo;
-
-    public function __construct(FeedIo $feedIo)
-    {
-        $this->feedIo = $feedIo;
-    }
+    /**
+     * RssExplorer constructor.
+     *
+     * @param \FeedIo\FeedIo $feedIo
+     */
+    public function __construct(
+        private FeedIo $feedIo
+    ){}
 
     /**
      * Get the unique key of the explorer.

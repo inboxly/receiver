@@ -9,20 +9,15 @@ use ArrayObject;
 abstract class Parameters extends ArrayObject
 {
     /**
-     * Fetcher key to be used to get feed for these parameters
-     *
-     * @var string
-     */
-    private string $fetcherKey;
-
-    /**
      * Parameters constructor.
      *
-     * @param string $fetcherKey
+     * @param string $fetcherKey Fetcher key to be used to get feed for these parameters
      * @param array $parameters
      */
-    public function __construct(string $fetcherKey, array $parameters = [])
-    {
+    public function __construct(
+        private string $fetcherKey,
+        array $parameters = []
+    ){
         $this->setFetcherKey($fetcherKey);
 
         parent::__construct($parameters, ArrayObject::ARRAY_AS_PROPS);

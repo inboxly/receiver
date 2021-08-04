@@ -11,17 +11,14 @@ use Inboxly\Receiver\Sources\Rss\RssExplorer;
 
 final class YoutubeRssExplorer implements UrlExplorer
 {
-    private RssExplorer $rssExplorer;
-
     /**
      * YoutubeRssExplorer constructor.
      *
      * @param \Inboxly\Receiver\Sources\Rss\RssExplorer $rssExplorer
      */
-    public function __construct(RssExplorer $rssExplorer)
-    {
-        $this->rssExplorer = $rssExplorer;
-    }
+    public function __construct(
+        private RssExplorer $rssExplorer
+    ){}
 
     /**
      * Get the unique key of the explorer.

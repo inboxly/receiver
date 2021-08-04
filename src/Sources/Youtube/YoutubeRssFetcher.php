@@ -18,21 +18,13 @@ final class YoutubeRssFetcher implements Fetcher
     public const KEY = 'youtube_rss';
 
     /**
-     * Base fetcher instance
-     *
-     * @var \Inboxly\Receiver\Sources\Rss\RssFetcher
-     */
-    private RssFetcher $rssFetcher;
-
-    /**
      * YoutubeRssFetcher constructor.
      *
-     * @param \Inboxly\Receiver\Sources\Rss\RssFetcher $rssFetcher
+     * @param \Inboxly\Receiver\Sources\Rss\RssFetcher $rssFetcher Base fetcher instance
      */
-    public function __construct(RssFetcher $rssFetcher)
-    {
-        $this->rssFetcher = $rssFetcher;
-    }
+    public function __construct(
+        private RssFetcher $rssFetcher
+    ){}
 
     /**
      * Get the unique key of the fetcher.
