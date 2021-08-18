@@ -50,11 +50,11 @@ class FetchController
 
         /** @var \Inboxly\Receiver\Feed $feed */
         foreach ($feeds as $feed) {
-            dump("Fetched feed: $feed->title");
+            dump("Fetched feed: $feed->name");
             
             /** @var \Inboxly\Receiver\Entry $entry */
             foreach ($feed->entries as $entry) {
-                dump("Entry in feed: $entry->title");
+                dump("Entry in feed: $entry->name");
             }
         }
     }

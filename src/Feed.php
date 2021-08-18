@@ -15,12 +15,12 @@ class Feed
      */
     public function __construct(
         public Parameters $parameters,
-        public ?string $title = null,
-        public ?string $description = null,
-        public ?string $link = null,
+        public ?string $name = null,
+        public ?string $summary = null,
+        public ?string $url = null,
         public ?string $image = null,
         public ?string $authorName = null,
-        public ?string $authorLink = null,
+        public ?string $authorUrl = null,
         public ?string $language = null,
         public ?DateTime $updatedAt = null,
         public ?DateTime $nextUpdateAt = null,

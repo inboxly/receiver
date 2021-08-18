@@ -32,13 +32,13 @@ class CommonCorrector implements EntryCorrector, FeedCorrector
      */
     public function correctFeed(Feed $feed): void
     {
-        $feed->title = $this->processor->process($feed->title, [
+        $feed->name = $this->processor->process($feed->name, [
             RemoveHtml::class,
             Limit::with(100, ''),
             Trim::class,
         ]);
 
-        $feed->description = $this->processor->process($feed->description, [
+        $feed->summary = $this->processor->process($feed->summary, [
             RemoveHtml::class,
             Limit::with(200),
             Trim::class,
@@ -52,25 +52,25 @@ class CommonCorrector implements EntryCorrector, FeedCorrector
      */
     public function correctEntry(Entry $entry): void
     {
-        if ($entry->description === null) {
-            $entry->description = $entry->text;
-        } elseif ($entry->text === null) {
-            $entry->text = $entry->description;
+        if ($entry->summary === null) {
+            $entry->summary = $entry->content;
+        } elseif ($entry->content === null) {
+            $entry->content = $entry->summary;
         }
 
-        $entry->title = $this->processor->process($entry->title, [
+        $entry->name = $this->processor->process($entry->name, [
             RemoveHtml::class,
             Limit::with(100, ''),
             Trim::class,
         ]);
 
-        $entry->description = $this->processor->process($entry->description, [
+        $entry->summary = $this->processor->process($entry->summary, [
             RemoveHtml::class,
             Limit::with(200),
             Trim::class,
         ]);
 
-        $entry->text = $this->processor->process($entry->text, [
+        $entry->content = $this->processor->process($entry->content, [
             SanitizeHtml::class,
             Trim::class,
         ]);

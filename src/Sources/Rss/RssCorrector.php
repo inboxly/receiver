@@ -27,11 +27,11 @@ final class RssCorrector implements FeedCorrector
      */
     public function correctFeed(Feed $feed): void
     {
-        if (!$feed->description || !$feed->image) {
+        if (!$feed->summary || !$feed->image) {
             $extracted = $this->embed->get($feed->parameters->url);
 
-            if (!$feed->description && $extracted->description) {
-                $feed->description = Str::limit(trim($extracted->description));
+            if (!$feed->summary && $extracted->description) {
+                $feed->summary = Str::limit(trim($extracted->description));
             }
 
             $feed->image ?: $feed->image = (string)$extracted->favicon;

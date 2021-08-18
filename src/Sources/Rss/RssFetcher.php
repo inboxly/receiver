@@ -112,12 +112,12 @@ final class RssFetcher implements Fetcher
 
         return new Feed(
             parameters: $parameters,
-            title: $feedIoFeed->getTitle(),
-            description: $feedIoFeed->getDescription(),
-            link: $feedIoFeed->getLink(),
+            name: $feedIoFeed->getTitle(),
+            summary: $feedIoFeed->getDescription(),
+            url: $feedIoFeed->getLink(),
             image: $feedIoFeed->getLogo(),
             authorName: $feedIoFeed->getAuthor()?->getName(),
-            authorLink: $feedIoFeed->getAuthor()?->getUri(),
+            authorUrl: $feedIoFeed->getAuthor()?->getUri(),
             language: $feedIoFeed->getLanguage(),
             updatedAt: $feedIoFeed->getLastModified(),
             nextUpdateAt: $result->getNextUpdate(5 * 60),
@@ -134,13 +134,13 @@ final class RssFetcher implements Fetcher
     {
         return new Entry(
             externalId: $feedIoItem->getPublicId(),
-            title: $feedIoItem->getTitle(),
-            description: $feedIoItem->getSummary(),
-            text: $feedIoItem->getContent(),
-            link: $feedIoItem->getLink(),
+            name: $feedIoItem->getTitle(),
+            summary: $feedIoItem->getSummary(),
+            content: $feedIoItem->getContent(),
+            url: $feedIoItem->getLink(),
             image: $this->getEntryImage($feedIoItem),
             authorName: $feedIoItem->getAuthor()?->getName(),
-            authorLink: $feedIoItem->getAuthor()?->getUri(),
+            authorUrl: $feedIoItem->getAuthor()?->getUri(),
             createdAt: $feedIoItem->getLastModified(),
             updatedAt: $feedIoItem->getLastModified(),
         );

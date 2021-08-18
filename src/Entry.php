@@ -13,13 +13,13 @@ class Entry
      */
     public function __construct(
         public string $externalId,
-        public ?string $title,
-        public ?string $description = null,
-        public ?string $text = null,
-        public ?string $link = null,
+        public ?string $name,
+        public ?string $summary = null,
+        public ?string $content = null,
+        public ?string $url = null,
         public ?string $image = null,
         public ?string $authorName = null,
-        public ?string $authorLink = null,
+        public ?string $authorUrl = null,
         public ?DateTime $createdAt = null,
         public ?DateTime $updatedAt = null,
     )

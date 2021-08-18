@@ -26,13 +26,13 @@ class CommonCorrectorTest extends TestCase
         // Setup
         $corrector = $this->makeCorrector();
         $entry = $this->getEntry();
-        $entry->title = 'Title with <a href="https://example.com">link</a>.';
+        $entry->name = 'Title with <a href="https://example.com">link</a>.';
 
         // Run
         $corrector->correctEntry($entry);
 
         // Asserts
-        $this->assertSame('Title with link.', $entry->title);
+        $this->assertSame('Title with link.', $entry->name);
     }
 
     /**
@@ -45,13 +45,13 @@ class CommonCorrectorTest extends TestCase
         // Setup
         $corrector = $this->makeCorrector();
         $entry = $this->getEntry();
-        $entry->description = 'Description with <a href="https://example.com">link</a>.';
+        $entry->summary = 'Description with <a href="https://example.com">link</a>.';
 
         // Run
         $corrector->correctEntry($entry);
 
         // Asserts
-        $this->assertSame('Description with link.', $entry->description);
+        $this->assertSame('Description with link.', $entry->summary);
     }
 
 
@@ -65,7 +65,7 @@ class CommonCorrectorTest extends TestCase
         // Setup
         $corrector = $this->makeCorrector();
         $entry = $this->getEntry();
-        $entry->text = 'Text with <a href="https://example.com">link</a>.';
+        $entry->content = 'Text with <a href="https://example.com">link</a>.';
 
         // Run
         $corrector->correctEntry($entry);
@@ -73,7 +73,7 @@ class CommonCorrectorTest extends TestCase
         // Asserts
         $this->assertSame(
             '<p>Text with <a href="https://example.com" target="_blank" rel="noreferrer noopener">link</a>.</p>',
-            $entry->text
+            $entry->content
         );
     }
 
